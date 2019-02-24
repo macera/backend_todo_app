@@ -259,16 +259,32 @@ response
 }
 ```
 todoがnullの場合
-error response
+
+request
+```
+mutation addTodoMutation($content: String = "") {
+  addTodoMutation(input: {content: $content}) {
+    todo {
+      content
+    }
+    errors
+  }
+}
+
+```
+
+response
 ```
 {
   "data": {
-    "addTodoMutation": null
-  },
-  "errors": [
-    {
-      "message": "Cannot return null for non-nullable field Todo.id"
+    "addTodoMutation": {
+      "todo": {
+        "content": ""
+      },
+      "errors": [
+        "Content can't be blank"
+      ]
     }
-  ]
+  }
 }
 ```
