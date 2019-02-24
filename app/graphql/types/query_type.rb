@@ -2,6 +2,14 @@ module Types
   class QueryType < Types::BaseObject
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
+    field :todo, TodoType, null: true do
+      description "idをもとにTodoを取得します"
+      argument :id, ID, required: true
+    end
+
+    def todo(id:)
+      Todo.find(id)
+    end
 
     # TODO: remove me
     field :test_field, String, null: false,
