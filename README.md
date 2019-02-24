@@ -109,12 +109,23 @@ end
 
 request
 ```
+query todo{
+  todo(id: 1) {
+      id
+      content
+    }
+}
+```
+
+または(queryは省略できる。mutationはできない)
+```
 {
   todo(id: 1) {
       id
       content
     }
 }
+
 ```
 
 response
