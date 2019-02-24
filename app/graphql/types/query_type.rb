@@ -7,8 +7,16 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :todos, Types::TodoType.connection_type, null: false do
+      description 'Todoリスト一覧をすべて取得します'
+    end
+
     def todo(id:)
       Todo.find(id)
+    end
+
+    def todos
+      Todo.all.order(created_at: :desc)
     end
 
     # TODO: remove me
