@@ -51,6 +51,8 @@ vendor/bundle
 
 `$ bundle exec rails g model todo content:string`
 
+`$ bundle exec rails db:migrate`
+
 ## set cors
 
 config/initializers/cors.rb
